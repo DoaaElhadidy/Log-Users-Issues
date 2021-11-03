@@ -1,9 +1,31 @@
 {
   "users": [
         { 
-            "id": 1, 
+            "id": "1", 
             "username": "ahmed", 
             "password": "123456" 
+        }
+    ],
+    "issues": [
+        {
+            "id": "1",
+            "title": "xxx",
+            "description": "An issue occured after logged my data"
+        },
+        {
+            "id": "2",
+            "title": "xxx",
+            "description": "An issue occured after logged my data"
+        },
+        {
+            "id": "3",
+            "title": "xxx",
+            "description": "An issue occured after logged my data"
+        },
+        {
+            "id": "4",
+            "title": "xxx",
+            "description": "An issue occured after logged my data"
         }
     ]
 }

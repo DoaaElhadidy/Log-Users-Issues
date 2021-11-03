@@ -1,0 +1,14 @@
+form{
+    width: 50%;
+    margin-left: 25%;
+    p{
+        color: darkred;
+    }
+    .error_msg{
+        background-color: #f3e0e0;
+        color: darkred;
+        border: 1px solid darkred;
+        margin-top: 20px;
+        padding: 15px;
+    }
+}

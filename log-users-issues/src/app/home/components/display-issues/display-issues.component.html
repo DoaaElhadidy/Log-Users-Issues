@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issuesToDisplay">
+        <th scope="row">{{issue.id}}</th>
+        <td>{{issue.title}}</td>
+        <td>{{issue.description}}</td>
+        <td>
+            <button class="btn btn-primary">Edit</button> |
+            <button class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
