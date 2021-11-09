@@ -5,26 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/components/header/header.component';
-import { LoginComponent } from './auth/components/login/login.component';
-import { HomeComponent } from './home/components/home/home.component';
-import { CreateIssueComponent } from './home/components/create-issue/create-issue.component';
-import { DisplayIssuesComponent } from './home/components/display-issues/display-issues.component';
+import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    LoginComponent,
-    HomeComponent,
-    CreateIssueComponent,
-    DisplayIssuesComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    CoreModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

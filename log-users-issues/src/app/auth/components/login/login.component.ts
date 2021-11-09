@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
+import { AuthService, User } from './../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,22 +16,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
       ]),
     });
   }
-
+  
   submitLogin(){
-    this.authService.getAllUsers().subscribe(users => {
-      let user = users.find(user => user.username === this.loginForm.get('userName')?.value && user.password === this.loginForm.get('password')?.value);
-      if(user){
-        this.router.navigate(['/home'])
-      } else {
-        this.showErrorMsg = true;
-      }
+    this.authService.login(this.loginForm.value).subscribe((user:User) => {
+      localStorage.setItem('userToken', JSON.stringify(user.accessToken));
+      this.router.navigate(['/create-issue']);
+    }, error => {
+      this.showErrorMsg = true;
     })
   }
 

@@ -1,19 +1,21 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Staff Id</th>
         <th scope="col">Title</th>
+        <th scope="col">PC Name</th>
         <th scope="col">Description</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let issue of issuesToDisplay">
-        <th scope="row">{{issue.id}}</th>
-        <td>{{issue.title}}</td>
+        <th scope="row">{{issue.staffId}}</th>
+        <td>{{issue.issueTitle}}</td>
+        <td>{{issue.computerName}}</td>
         <td>{{issue.description}}</td>
         <td>
             <button class="btn btn-primary">Edit</button> |
-            <button class="btn btn-danger">Remove</button>
+            <button class="btn btn-danger" (click)="deleteIssue(issue.id)">Remove</button>
         </td>
       </tr>
     </tbody>

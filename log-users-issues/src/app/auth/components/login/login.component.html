@@ -1,10 +1,13 @@
 <div class="container">
     <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" class="mt-5">
+        <div class="error_msg" *ngIf="showErrorMsg">
+            This user is not exist
+        </div>
         <div class="row" class="mt-5">
             <div class="col-12">
-                <input type="text" formControlName="userName" class="form-control" placeholder="Enter your username..."/>
+                <input type="text" formControlName="email" class="form-control" placeholder="Enter your email..."/>
                 <br />
-                <p *ngIf="loginForm.get('userName')?.errors?.required && loginForm.get('userName')?.touched">
+                <p *ngIf="loginForm.get('email')?.errors?.required && loginForm.get('email')?.touched">
                     *You must enter user name
                 </p>
             </div>
@@ -22,8 +25,5 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-        <div class="error_msg" *ngIf="showErrorMsg">
-            This user is not exist
-        </div>
     </form>
 </div>

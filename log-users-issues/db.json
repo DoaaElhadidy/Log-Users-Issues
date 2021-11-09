@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "ahmed",
+      "password": "123456"
+    },
+    {
+      "email": "ahmed@abc.com",
+      "password": "$2a$10$qkStLVwXvURtHt5EajU8MOW/rSpJobQx.e09LmEGiOz60r.YsCCSO",
+      "id": "cJJy38C"
+    }
+  ],
+  "issues": [
+    {
+      "issueTitle": "xyz",
+      "computerName": "xyzaa",
+      "staffId": "23025",
+      "description": "xyz issue description",
+      "id": 2
+    },
+    {
+      "issueTitle": "abc",
+      "computerName": "abcd",
+      "staffId": "23023",
+      "description": "abc issue description",
+      "id": 3
+    }
+  ]
+}

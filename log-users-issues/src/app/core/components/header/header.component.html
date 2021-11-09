@@ -3,14 +3,13 @@
       <a class="navbar-brand">Tracking Issues</a>
       <div>
         <ul class="navbar-nav">
+          <ng-container *ngIf="navLinks">
+            <li class="nav-item" *ngFor="let navLink of navLinks">
+              <a class="nav-link" (click)="redirectNavLink(navLink.path)">{{navLink.label}}</a>
+            </li>
+          </ng-container>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home/create-issue">Create Issue</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/display-issues">Show All Issues</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Log out</a>
+            <a class="nav-link" (click)="logOut()">Log out</a>
           </li>
         </ul>
       </div>

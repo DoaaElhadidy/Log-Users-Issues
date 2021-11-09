@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  navLinks = [
+    {
+      label: 'Create Issue',
+      path: '/create-issue'
+    },
+    {
+    label: 'Display Issues',
+    path: '/display-issues'
+    }
+  ];
 
   constructor() { }
 
