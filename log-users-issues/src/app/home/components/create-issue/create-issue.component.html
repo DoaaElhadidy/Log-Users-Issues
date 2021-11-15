@@ -8,24 +8,6 @@
                 <input type="text" class="form-control"  formControlName="issueTitle">
             </div>
             <div class="col-3 mt-2">
-                <label>Computer name</label>
-            </div>
-            <div class="col-9 mt-2">
-                <input type="text" class="form-control" formControlName="computerName">
-            </div>
-            <div class="col-3 mt-2">
-                <label>Email</label>
-            </div>
-            <div class="col-9 mt-2">
-                <input type="text" class="form-control" formControlName="email">
-            </div>
-            <div class="col-3 mt-2">
-                <label>Staff id</label>
-            </div>
-            <div class="col-9 mt-2">
-                <input type="text" class="form-control" formControlName="staffId">
-            </div>
-            <div class="col-3 mt-2">
                 <label>Issue description</label>
             </div>
             <div class="col-9 mt-2">
@@ -33,11 +15,38 @@
                 </textarea>
             </div>
             <div class="col-3 mt-2">
+                <label>Assign Issue To</label>
+            </div>
+            <div class="col-9 mt-2">
+                <select class="form-control" formControlName="assignIssueTo">
+                    <option disabled>Please select an assignee</option>
+                    <option *ngFor="let assignee of assigneeData" [value]="assignee.email">{{assignee.email}}</option>
+                </select>
+            </div>
+            <div class="col-3 mt-2">
                 <label>Upload image</label>
             </div>
             <div class="col-9 mt-2">
-                <input type="file" accept="image/*" formControlName="image">
+                <input class="form-control" type="file" accept="image/*" (change)="handleFileInput(inputFile)" #inputFile>
             </div>
+            <ng-container *ngIf="issueId">
+                <div class="col-3 mt-2">
+                    <label>Status</label>
+                </div>
+                <div class="col-9 mt-2">
+                    <select class="form-control" formControlName="status">
+                        <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
+                    </select>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="issuesForm.get('comment')">
+                <div class="col-3 mt-2">
+                    <label>Comment</label>
+                </div>
+                <div class="col-9 mt-2">
+                    <textarea class="form-control" formControlName="comment"></textarea>
+                </div>
+            </ng-container>
         </div>
         <div class="submit_btn mt-2">
             <button type="submit" class="btn btn-primary">Submit Issue</button>

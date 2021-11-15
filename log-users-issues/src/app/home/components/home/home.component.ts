@@ -9,11 +9,11 @@ export class HomeComponent implements OnInit {
   navLinks = [
     {
       label: 'Create Issue',
-      path: '/create-issue'
+      path: '/home/create-issue'
     },
     {
     label: 'Display Issues',
-    path: '/display-issues'
+    path: '/home/display-issues'
     }
   ];
 

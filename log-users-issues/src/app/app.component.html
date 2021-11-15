@@ -1,4 +1,4 @@
-<div *ngIf="showModal">
-    <app-modal></app-modal>
+<div *ngIf="showModal && modalData">
+    <app-modal [modalData]="modalData"></app-modal>
 </div>
 <router-outlet></router-outlet>

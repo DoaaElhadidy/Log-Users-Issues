@@ -8,8 +8,8 @@ export class ModalData implements IModalData{
     message?: string = '';
     okHandler?: () => void = () => {};
     cancelHandler?: () => void = () => {};
-    constructor(msg?: string, okHandler?: ()=>void, cancelHandler?: ()=>void){
-        this.message = msg;
+    constructor(message?: string, okHandler?: ()=>void, cancelHandler?: ()=>void){
+        this.message = message;
         this.okHandler = okHandler;
         this.cancelHandler = cancelHandler;
     }

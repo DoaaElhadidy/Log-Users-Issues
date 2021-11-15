@@ -17,6 +17,8 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.modalService.modalSubject.subscribe((data: IModalSubjectData) => {
+      console.log('data', data);
+      
       this.showModal = data.showModal;
       this.modalData = data.modalData;
     });

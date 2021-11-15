@@ -13,21 +13,9 @@
                 margin-top: 10px;
             }
         }
-        p{
-            color: darkred;
-            padding: 10px 0;
-            margin: 0;
-        }
-        .error_msg{
-            background-color: #f3e0e0;
-            color: darkred;
-            border: 1px solid darkred;
-            margin-top: 20px;
-            padding: 15px;
-        }
         .btn-submit{
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             button{
                 padding: 5px 40px;
             }

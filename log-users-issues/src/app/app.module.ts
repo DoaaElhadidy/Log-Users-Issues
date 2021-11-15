@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
-import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { HomeModule } from './home/home.module';
     ReactiveFormsModule, 
     HttpClientModule,
     AuthModule,
-    CoreModule,
-    HomeModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

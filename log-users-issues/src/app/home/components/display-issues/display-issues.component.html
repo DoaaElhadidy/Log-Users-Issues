@@ -2,20 +2,31 @@
     <thead>
       <tr>
         <th scope="col">Staff Id</th>
-        <th scope="col">Title</th>
         <th scope="col">PC Name</th>
-        <th scope="col">Description</th>
+        <th scope="col">Issue Title</th>
+        <th scope="col">Issue Description</th>
+        <th scope="col">Image</th>
+        <th scope="col">Created by</th>
+        <th scope="col">Assigned To</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let issue of issuesToDisplay">
         <th scope="row">{{issue.staffId}}</th>
-        <td>{{issue.issueTitle}}</td>
         <td>{{issue.computerName}}</td>
+        <td>{{issue.issueTitle}}</td>
         <td>{{issue.description}}</td>
         <td>
-            <button class="btn btn-primary">Edit</button> |
-            <button class="btn btn-danger" (click)="deleteIssue(issue.id)">Remove</button>
+          <img src="{{issue.image}}" style="width: 50px;">
+        </td>
+        <td>{{issue.email}}</td>
+        <td>{{issue.assignIssueTo}}</td>
+        <td>
+            <ng-container *ngIf="isAdmin === 'true' || issue.email === currentUserEmail">
+              <button class="btn btn-primary" (click)="editIssue(issue.id)">Edit</button> |
+              <button class="btn btn-danger" (click)="deleteIssue(issue.id)">Remove</button>
+            </ng-container>
         </td>
       </tr>
     </tbody>

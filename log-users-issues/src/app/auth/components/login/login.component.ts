@@ -27,10 +27,12 @@ export class LoginComponent implements OnInit {
   submitLogin(){
     this.authService.login(this.loginForm.value).subscribe((user:User) => {
       localStorage.setItem('userToken', JSON.stringify(user.accessToken));
-      this.router.navigate(['/create-issue']);
+      localStorage.setItem('email', user.user.email);
+      localStorage.setItem('isAdmin', JSON.stringify(user.user.isAdmin));
+      
+      this.router.navigate(['/home/create-issue']);
     }, error => {
       this.showErrorMsg = true;
-    })
-  }
-
+    });
+  };
 }

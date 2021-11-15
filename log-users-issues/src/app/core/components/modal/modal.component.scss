@@ -13,6 +13,13 @@
         padding: 30px;
         border-radius: 5px;
         position: relative;
+        .btns{
+            display: flex;
+            justify-content: flex-end;
+            button:first-child {
+                margin-right: 5px;
+            }
+        }
         i{
             position: absolute;
             top: 3px;

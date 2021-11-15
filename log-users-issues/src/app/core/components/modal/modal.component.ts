@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IModalData, ModalData } from '../../models/modal-data';
+import { ModalService } from './../../services/modal.service';
 
 @Component({
   selector: 'app-modal',
@@ -13,6 +14,14 @@ export class ModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  cancel(){
+    this.modalData?.cancelHandler?.();
+  }
+
+  ok(){
+    this.modalData?.okHandler?.();
   }
 
 }

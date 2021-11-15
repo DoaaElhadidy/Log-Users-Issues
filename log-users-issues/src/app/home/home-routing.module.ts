@@ -7,7 +7,8 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, children: [
-    { path: 'create-issue', component: CreateIssueComponent, canActivate: [AuthGuard] },
+    { path: 'create-issue', component: CreateIssueComponent, canActivate: [AuthGuard]},
+    { path: 'create-issue/:id', component: CreateIssueComponent  },
     { path: 'display-issues', component: DisplayIssuesComponent, canActivate: [AuthGuard] }
   ] },
 ];

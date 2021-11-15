@@ -1,10 +1,10 @@
-<!-- <div class="pop_up">
+<div class="pop_up">
     <div>
-        <i class="fa fa-close" (click)="modalData.cancelHandler()"></i>
-        <p>Msg</p>
+        <i class="fa fa-close" (click)="cancel()"></i>
+        <p>{{modalData?.message}}</p>
         <div class="btns">
-            <button type="button" class="btn btn-danger" (click)="modalData.cancelHandler()">Cancel</button>
-            <button type="submit" class="btn btn-success" (click)="modalData.okHandler()">Ok</button>
+            <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button> 
+            <button type="submit" class="btn btn-success" (click)="ok()">Ok</button>
         </div>
     </div>
-</div> -->
+</div>
