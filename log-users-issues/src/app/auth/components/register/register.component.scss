@@ -1,23 +1,31 @@
-.form_container{
-    background-color: #CCC;
-    padding: 30px;
-    width: 40%;
-    margin: auto;
+.register{
+    height: 100%;
+    background-image: url('../../../../assets/images/background-red.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 100px;
-    form{
-        .row{
-            &>div{
-                margin-top: 10px;
+    .form_container{
+        background-color: #FFF;
+        padding: 30px;
+        width: 45%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        form{
+            label{
+                padding: 10px 0;
             }
-        }
-        .btn-submit{
-            display: flex;
-            justify-content: flex-end;
-            button{
-                padding: 5px 40px;
+            .btn-submit{
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    padding: 5px 40px;
+                    background-color: #e60000;
+                    border-color: #e60000;
+                }
             }
         }
     }

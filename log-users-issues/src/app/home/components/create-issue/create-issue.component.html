@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container create_issue">
+    <app-progress-bar [steps]="statuses" [activeStep]="currentStatus"></app-progress-bar>
     <form [formGroup]="issuesForm" (ngSubmit)="submitIssue()" class="mt-5">
         <div class="row">
             <div class="col-3 mt-2">
@@ -21,6 +22,7 @@
                 <select class="form-control" formControlName="assignIssueTo">
                     <option disabled>Please select an assignee</option>
                     <option *ngFor="let assignee of assigneeData" [value]="assignee.email">{{assignee.email}}</option>
+                    <option value="all">All</option>
                 </select>
             </div>
             <div class="col-3 mt-2">
@@ -35,7 +37,7 @@
                 </div>
                 <div class="col-9 mt-2">
                     <select class="form-control" formControlName="status">
-                        <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
+                        <option *ngFor="let status of statuses" [value]="status" [disabled]="status === currentStatus">{{status}}</option>
                     </select>
                 </div>
             </ng-container>

@@ -11,7 +11,8 @@ export interface Issue {
   id: string,
   image: string,
   assignIssueTo: string,
-  status: string
+  status: string,
+  comment: string
 }
 
 @Injectable({

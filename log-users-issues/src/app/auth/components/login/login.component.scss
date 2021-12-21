@@ -1,35 +1,52 @@
-.form_container{
-    background-color: #CCC;
-    padding: 30px;
-    width: 40%;
-    margin: auto;
+.login{
+    height: 100%;
+    background-image: url('../../../../assets/images/background-red.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 100px;
-    form{
-        .row{
-            &>div{
-                margin-top: 10px;
+    .form_container{
+        background-color: #fff;
+        padding: 30px;
+        width: 45%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        form{
+            label{
+                padding: 10px 0;
             }
-        }
-        p{
-            color: darkred;
-            padding: 10px 0;
-            margin: 0;
-        }
-        .error_msg{
-            background-color: #f3e0e0;
-            color: darkred;
-            border: 1px solid darkred;
-            margin-top: 20px;
-            padding: 15px;
-        }
-        .btn-submit{
-            display: flex;
-            justify-content: space-between;
-            button{
-                padding: 5px 40px;
+            p{
+                color: #e60000;
+                padding: 10px 0;
+                margin: 0;
+            }
+            .error_msg{
+                color: #e60000;
+                border: 1px solid #e60000;
+                margin-top: 20px;
+                padding: 15px;
+                border-radius: 5px;
+            }
+            .btn-submit{
+                display: flex;
+                justify-content: center;
+                button{
+                    margin-top: 15px;
+                    padding: 8px 60px;
+                    background-color: #e60000;
+                    border-color: #e60000;
+                    font-size: 18px;
+                }
+            }
+            .create_account{
+                text-align: center;
+                padding: 10px;
+                a{
+                    color: #e60000;
+                }
             }
         }
     }

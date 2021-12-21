@@ -1,10 +1,16 @@
-<div class="pop_up">
+<div class="pop_up" (click)="cancel()">
     <div>
-        <i class="fa fa-close" (click)="cancel()"></i>
-        <p>{{modalData?.message}}</p>
-        <div class="btns">
-            <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button> 
-            <button type="submit" class="btn btn-success" (click)="ok()">Ok</button>
-        </div>
+        <ng-container *ngIf="modalData.type === 'action'">
+            <i class="fa fa-close" (click)="cancel()"></i>
+            <p>{{modalData?.message}}</p>
+            <div class="btns">
+                <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button> 
+                <button type="submit" class="btn btn-success" (click)="ok()">Ok</button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="modalData.type === 'display'">
+            <i class="fa fa-close" (click)="cancel()"></i>
+            <img [src]="modalData?.data">
+        </ng-container>
     </div>
 </div>

@@ -1,35 +1,42 @@
-<div class="container">
-    <div class="form_container">
-        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
-            <h4>Login</h4>
-            <div class="error_msg" *ngIf="showErrorMsg">
-                This user is not exist
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <input type="text" formControlName="email" class="form-control" placeholder="Enter your email..."/>
-                    <p *ngIf="loginForm.get('email')?.errors?.required && loginForm.get('email')?.touched">
-                        *You must enter user name
-                    </p>
+<div class="login">
+    <div class="container">
+        <div class="form_container">
+            <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+                <div class="error_msg" *ngIf="showErrorMsg">
+                    This user is not exist
                 </div>
-                <div class="col-12">
-                    <input type="password" formControlName="password" class="form-control" placeholder="Enter your password..." />
-                    <p *ngIf="loginForm.get('password')?.errors?.required && loginForm.get('password')?.touched">
-                        *You must enter password
-                    </p>
-                    <p *ngIf="loginForm.get('password')?.errors?.minlength && loginForm.get('password')?.touched">
-                        *You entered
-                        {{ loginForm.get("password")?.errors?.minlength.actualLength }} chars,
-                        Password must be 6 chars or more
-                    </p>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" placeholder="Enter your email..."/>
+                        <p *ngIf="loginForm.get('email')?.errors?.required && loginForm.get('email')?.touched">
+                            *You must enter user name
+                        </p>
+                    </div>
+                    <div class="col-12">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" class="form-control" placeholder="Enter your password..." />
+                        <p *ngIf="loginForm.get('password')?.errors?.required && loginForm.get('password')?.touched">
+                            *You must enter password
+                        </p>
+                        <p *ngIf="loginForm.get('password')?.errors?.minlength && loginForm.get('password')?.touched">
+                            *You entered
+                            {{ loginForm.get("password")?.errors?.minlength.actualLength }} chars,
+                            Password must be 6 chars or more
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 btn-submit">
-                    <a routerLink="/register">Create New Account</a>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                <div class="row">
+                    <div class="col-12 btn-submit">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="row create_account">
+                    <span>
+                    I dont have an account <a routerLink="/register">Register</a>
+                    </span>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

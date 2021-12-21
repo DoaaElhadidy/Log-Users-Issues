@@ -25,7 +25,6 @@ export class DisplayIssuesComponent implements OnInit {
   isAdmin: string | null = '';
   currentUserEmail: string | null = '';
 
-
   constructor(
     private issuesService: IssuesService,
     private modalService: ModalService,
@@ -42,9 +41,11 @@ export class DisplayIssuesComponent implements OnInit {
       new ModalSubjectData(
         true,
         new ModalData(
+          'action',
+          '',
           'Are you sure you want to delete this item?',
           this.okHandler,
-          this.cancelHandler,
+          this.cancelHandler
         )
       )
     );
@@ -69,15 +70,31 @@ export class DisplayIssuesComponent implements OnInit {
     this.issuesService.getAllIssues().subscribe((issues: Issue[]) => {
       this.isAdmin = localStorage.getItem('isAdmin');
       this.currentUserEmail = localStorage.getItem('email');
+      
       if(this.isAdmin === "true"){
         this.issuesToDisplay = issues;
       } else {
-        this.issuesToDisplay = issues.filter(issue => (issue.email === this.currentUserEmail || issue.assignIssueTo === this.currentUserEmail));        
+        this.issuesToDisplay = issues.filter(issue => (issue.email === this.currentUserEmail || issue.assignIssueTo === this.currentUserEmail || issue.assignIssueTo === 'all'));        
       };
     });
   };
 
   editIssue(id: string){
     this.router.navigate([`/home/create-issue/${id}`]);
+  };
+
+  maxmizeImage(image: any){
+    this.modalService.openModal(
+      new ModalSubjectData(
+        true,
+        new ModalData(
+          'display',
+          image,
+          '',
+          ()=>{},
+          this.cancelHandler
+        )
+      )
+    );
   }
 }

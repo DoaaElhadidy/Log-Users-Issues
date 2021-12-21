@@ -1,8 +1,14 @@
-form{
+.create_issue{
     width: 50%;
-    margin-left: 25%;
-    .submit_btn{
-        display: flex;
-        justify-content: flex-end;
+    margin: auto;
+    form{
+        .submit_btn{
+            display: flex;
+            justify-content: flex-end;
+            button{
+                background: #e60000;
+                border-color: #e60000;
+            }
+        }
     }
 }

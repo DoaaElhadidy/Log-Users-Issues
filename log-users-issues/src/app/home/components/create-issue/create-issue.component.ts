@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, UserData } from 'src/app/auth/services/auth.service';
@@ -12,9 +12,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./create-issue.component.scss']
 })
 export class CreateIssueComponent implements OnInit, OnDestroy {
-  subscription: Subscription = new Subscription();
+  subscriptions: Subscription[] = [];
   issuesForm: FormGroup = new FormGroup({});
   imageFile: string | null | ArrayBuffer = '';
+  currentStatus: string = '';
   assigneeData: UserData[] = [];
   existingUser: UserData | undefined  = {
     id: '',
@@ -34,10 +35,10 @@ export class CreateIssueComponent implements OnInit, OnDestroy {
   };
   issueId: string = '';
   statuses: string[] = [
-    Status.opened, 
-    Status.inProgress, 
-    Status.resolved, 
-    Status.rejected, 
+    Status.opened,
+    Status.inProgress,
+    Status.resolved,
+    Status.rejected,
     Status.closed
   ];
 
@@ -67,21 +68,22 @@ export class CreateIssueComponent implements OnInit, OnDestroy {
           }
         });
 
-        this.subscription = this.issuesService.getIssueById(param.id).subscribe(issue => {
+        this.subscriptions.push(this.issuesService.getIssueById(param.id).subscribe(issue => {
           this.imageFile = issue.image;
+          this.currentStatus = issue.status;
           this.issuesForm.patchValue(issue);
-        });
+        }));
       }
     });
 
-    this.authService.getAllUsers().subscribe(users => {
+    this.subscriptions.push(this.authService.getAllUsers().subscribe(users => {
       this.assigneeData = users;
       this.existingUser = users.find(user => user.email ===  localStorage.getItem('email'));
       let userId = this.existingUser?.id;
       this.authService.getUserById(userId).subscribe(user => {
         this.userData = user;     
       });
-    });
+    }));
 
   };
 
@@ -113,7 +115,7 @@ export class CreateIssueComponent implements OnInit, OnDestroy {
   };
 
   ngOnDestroy(){
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
 }

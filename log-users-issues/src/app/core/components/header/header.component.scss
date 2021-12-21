@@ -1,0 +1,16 @@
+nav{
+    border-bottom: 1px solid #CCC;
+    background: #FFF;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    a{
+        color: #000;
+        cursor: pointer;
+        img{
+            width:50px;
+            margin-right: 10px;
+        }
+    }
+}

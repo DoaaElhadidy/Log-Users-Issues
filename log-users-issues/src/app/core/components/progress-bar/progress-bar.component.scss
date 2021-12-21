@@ -1,0 +1,42 @@
+.progress_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    margin-top: 130px;
+    padding-bottom: 20px;
+    .circle{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #CCC;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-size: 14px;
+        font-weight: bold;
+        span{
+            position: absolute;
+            top: 35px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    .line{
+        width: 120px;
+        height: 6px;
+        background-color: #CCC;
+        &:first-child{
+            display: none;
+        }
+    }
+    .active{
+        background-color: #e60000;
+        color: white;
+        span{
+            color: #000;
+        }
+    }
+}

@@ -1,33 +1,44 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Staff Id</th>
-        <th scope="col">PC Name</th>
-        <th scope="col">Issue Title</th>
-        <th scope="col">Issue Description</th>
-        <th scope="col">Image</th>
-        <th scope="col">Created by</th>
-        <th scope="col">Assigned To</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let issue of issuesToDisplay">
-        <th scope="row">{{issue.staffId}}</th>
-        <td>{{issue.computerName}}</td>
-        <td>{{issue.issueTitle}}</td>
-        <td>{{issue.description}}</td>
-        <td>
-          <img src="{{issue.image}}" style="width: 50px;">
-        </td>
-        <td>{{issue.email}}</td>
-        <td>{{issue.assignIssueTo}}</td>
-        <td>
-            <ng-container *ngIf="isAdmin === 'true' || issue.email === currentUserEmail">
-              <button class="btn btn-primary" (click)="editIssue(issue.id)">Edit</button> |
-              <button class="btn btn-danger" (click)="deleteIssue(issue.id)">Remove</button>
-            </ng-container>
-        </td>
-      </tr>
-    </tbody>
+<div *ngIf="issuesToDisplay">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Staff Id</th>
+          <th scope="col">PC Name</th>
+          <th scope="col">Issue Title</th>
+          <th scope="col">Issue Description</th>
+          <th scope="col">Image</th>
+          <th scope="col">Created by</th>
+          <th scope="col">Assigned To</th>
+          <th scope="col">Status</th>
+          <th scope="col">Comment</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let issue of issuesToDisplay">
+          <th scope="row">{{issue.staffId}}</th>
+          <td>{{issue.computerName}}</td>
+          <td>{{issue.issueTitle}}</td>
+          <td>{{issue.description}}</td>
+          <td>
+            <img src="{{issue.image}}" class="issue_image" (click)="maxmizeImage(issue.image)">
+          </td>
+          <td>{{issue.email}}</td>
+          <td>{{issue.assignIssueTo}}</td>
+          <td>{{issue.status}}</td>
+          <td>{{issue.comment}}</td>
+          <td>
+            <!-- *ngIf="isAdmin === 'true' || issue.email === currentUserEmail" -->
+              <ng-container>
+                <button class="btn btn-primary" (click)="editIssue(issue.id)">Edit</button> |
+                <button class="btn btn-danger" (click)="deleteIssue(issue.id)">Remove</button>
+              </ng-container>
+          </td>
+        </tr>
+      </tbody>
   </table>
+</div>
+
+<div *ngIf="!issuesToDisplay" style="background-color: red; height: 200px;">
+  No Issues 
+</div>

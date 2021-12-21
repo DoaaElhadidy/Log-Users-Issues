@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="progress_bar">
+        <ng-container *ngFor="let step of displayedSteps; let i = index">
+            <div class="line" [ngClass]="{'active': step.active === true}"></div>
+            <div class="circle" [ngClass]="{'active': step.active === true}">
+                {{i+1}}
+                <span>{{step.name}}</span>
+            </div>
+        </ng-container>
+    </div>
+</div>
